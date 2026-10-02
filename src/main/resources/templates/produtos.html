@@ -165,12 +165,21 @@
                 <div class="page-title">
                     <span class="subtitle">Nosso menu</span>
                     <h1>Produtos</h1>
-                    <p>Escolha seu café favorito.</p>
+                    <p>Escolha seu café, doce ou salgado favorito.</p>
                 </div>
 
-                <div class="products-grid">
+                <!-- Botões de Filtro -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="doces">Doces</button>
+                    <button class="filter-btn" data-filter="salgados">Salgados</button>
+                </div>
 
-                    <article class="product-card">
+                <div class="products-grid" id="productsGrid">
+
+                    <!-- CAFÉS (6 produtos originais) -->
+                    
+                    <article class="product-card" data-category="todos">
                         <img src="static/img/cafeexpresso.avif" alt="Café espresso">
                         <div class="product-info">
                             <span class="category">Café quente</span>
@@ -185,7 +194,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card">
+                    <article class="product-card" data-category="todos">
                         <img src="static/img/cappucciono.avif" alt="Cappuccino">
                         <div class="product-info">
                             <span class="category">Café quente</span>
@@ -200,7 +209,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card">
+                    <article class="product-card" data-category="todos">
                         <img src="static/img/mocha.avif" alt="Mocha">
                         <div class="product-info">
                             <span class="category">Café especial</span>
@@ -214,7 +223,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card">
+                    <article class="product-card" data-category="todos">
                         <img src="static/img/iccecoffe.avif" alt="Iced Coffee">
                         <div class="product-info">
                             <span class="category">Bebida gelada</span>
@@ -228,8 +237,10 @@
                         </div>
                     </article>
 
-                    <article class="product-card">
-                        <img src="static/img/donnut.avif" alt="Donut">
+                    <!-- DOCES (8 produtos) -->
+
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1585080872051-9bea551a2e45?auto=format&fit=crop&w=500&q=60" alt="Donut">
                         <div class="product-info">
                             <span class="category">Doce</span>
                             <h2>Donut Aurora</h2>
@@ -242,8 +253,8 @@
                         </div>
                     </article>
 
-                    <article class="product-card">
-                        <img src="static/img/bolo.avif" alt="Bolo">
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=60" alt="Bolo de Chocolate">
                         <div class="product-info">
                             <span class="category">Doce</span>
                             <h2>Bolo de Chocolate</h2>
@@ -253,6 +264,173 @@
                                 <strong>R$ 12,00</strong>
                                 <button class="small-button add-product"
                                     data-name="Bolo de Chocolate">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=60" alt="Croissant de Chocolate">
+                        <div class="product-info">
+                            <span class="category">Doce</span>
+                            <h2>Croissant de Chocolate</h2>
+                            <p>Massa folhada crocante com chocolate belga.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 9,50</strong>
+                                <button class="small-button add-product"
+                                    data-name="Croissant de Chocolate">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1599599810694-b5ac4dd8b68d?auto=format&fit=crop&w=500&q=60" alt="Torta de Morango">
+                        <div class="product-info">
+                            <span class="category">Doce</span>
+                            <h2>Torta de Morango</h2>
+                            <p>Fatia de torta com morangos frescos e calda doce.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 14,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Torta de Morango">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1634371179604-d3fdb7f1ef14?auto=format&fit=crop&w=500&q=60" alt="Brownie">
+                        <div class="product-info">
+                            <span class="category">Doce</span>
+                            <h2>Brownie Clássico</h2>
+                            <p>Brownie pegajoso com pedaços de chocolate derretido.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 11,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Brownie Clássico">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1488477181946-85a2fdeae267?auto=format&fit=crop&w=500&q=60" alt="Muffin de Blueberry">
+                        <div class="product-info">
+                            <span class="category">Doce</span>
+                            <h2>Muffin de Blueberry</h2>
+                            <p>Muffin macio com frutas vermelhas frescas.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 9,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Muffin de Blueberry">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="doces">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=60" alt="Cheesecake">
+                        <div class="product-info">
+                            <span class="category">Doce</span>
+                            <h2>Cheesecake Clássico</h2>
+                            <p>Cheesecake cremoso com cobertura de frutas vermelhas.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 16,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Cheesecake Clássico">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SALGADOS (6 produtos) -->
+
+                    <article class="product-card" data-category="salgados">
+                        <img src="https://images.unsplash.com/photo-1605521992968-5e70b5f8d86c?auto=format&fit=crop&w=500&q=60" alt="Sanduíche Grelhado">
+                        <div class="product-info">
+                            <span class="category">Salgado</span>
+                            <h2>Sanduíche Grelhado</h2>
+                            <p>Pão na chapa com presunto, queijo e tomate.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 14,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Sanduíche Grelhado">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="salgados">
+                        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=500&q=60" alt="Quiche">
+                        <div class="product-info">
+                            <span class="category">Salgado</span>
+                            <h2>Quiche de Espinafre</h2>
+                            <p>Quiche com espinafre e queijo derretido.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 13,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Quiche de Espinafre">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="salgados">
+                        <img src="https://images.unsplash.com/photo-1584099950769-0d0a5e5ced59?auto=format&fit=crop&w=500&q=60" alt="Broa de Milho">
+                        <div class="product-info">
+                            <span class="category">Salgado</span>
+                            <h2>Broa de Milho</h2>
+                            <p>Broa crocante feita com milho e sementes.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 8,50</strong>
+                                <button class="small-button add-product"
+                                    data-name="Broa de Milho">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="salgados">
+                        <img src="https://images.unsplash.com/photo-1589985643288-ce5eb6dc2b0f?auto=format&fit=crop&w=500&q=60" alt="Croissant de Queijo">
+                        <div class="product-info">
+                            <span class="category">Salgado</span>
+                            <h2>Croissant de Queijo</h2>
+                            <p>Croissant folhado com três tipos de queijo.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 10,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Croissant de Queijo">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="salgados">
+                        <img src="https://images.unsplash.com/photo-1581353977817-ce786bc75f90?auto=format&fit=crop&w=500&q=60" alt="Baguete com Queijo">
+                        <div class="product-info">
+                            <span class="category">Salgado</span>
+                            <h2>Baguete com Queijo</h2>
+                            <p>Baguete crocante com queijo parmesão derretido.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 11,00</strong>
+                                <button class="small-button add-product"
+                                    data-name="Baguete com Queijo">Adicionar</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="salgados">
+                        <img src="https://images.unsplash.com/photo-1565520543270-a0eed25c32a1?auto=format&fit=crop&w=500&q=60" alt="Pão de Queijo">
+                        <div class="product-info">
+                            <span class="category">Salgado</span>
+                            <h2>Pão de Queijo Aurora</h2>
+                            <p>Pão de queijo caseiro, quentinho e crocante.</p>
+
+                            <div class="product-footer">
+                                <strong>R$ 7,50</strong>
+                                <button class="small-button add-product"
+                                    data-name="Pão de Queijo Aurora">Adicionar</button>
                             </div>
                         </div>
                     </article>
@@ -302,6 +480,17 @@
                             <option>Iced Coffee</option>
                             <option>Donut Aurora</option>
                             <option>Bolo de Chocolate</option>
+                            <option>Croissant de Chocolate</option>
+                            <option>Torta de Morango</option>
+                            <option>Brownie Clássico</option>
+                            <option>Muffin de Blueberry</option>
+                            <option>Cheesecake Clássico</option>
+                            <option>Sanduíche Grelhado</option>
+                            <option>Quiche de Espinafre</option>
+                            <option>Broa de Milho</option>
+                            <option>Croissant de Queijo</option>
+                            <option>Baguete com Queijo</option>
+                            <option>Pão de Queijo Aurora</option>
                         </select>
 
                         <label for="quantity">Quantidade</label>
