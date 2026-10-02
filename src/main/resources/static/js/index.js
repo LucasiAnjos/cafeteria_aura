@@ -79,7 +79,6 @@ function restartAutoSlide() {
 
 showSlide(0);
 startAutoSlide();
-setInterval(nextSlide, 5000);
 
 document.querySelectorAll(".add-product").forEach((button) => {
     button.addEventListener("click", () => {
