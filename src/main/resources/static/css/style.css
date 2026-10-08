@@ -1,3 +1,13 @@
+/* =========================================================
+   CAFÉ AURA
+   STYLE.CSS COMPLETO E ATUALIZADO
+========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
 :root {
     --background: #f8f2ec;
     --card: #fffaf5;
@@ -8,7 +18,15 @@
     --muted: #735b4d;
     --border: rgba(104, 67, 47, 0.15);
     --shadow: 0 15px 40px rgba(61, 37, 27, 0.12);
+    --white: #ffffff;
+    --success: #5f8055;
+    --danger: #b42318;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -35,7 +53,7 @@ a {
 
 img {
     display: block;
-    width: 100%;
+    max-width: 100%;
 }
 
 button,
@@ -45,20 +63,36 @@ textarea {
     font: inherit;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container {
     width: min(1180px, calc(100% - 32px));
     margin: 0 auto;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
     position: sticky;
     top: 0;
-    z-index: 30;
+    z-index: 100;
+    width: 100%;
     border-bottom: 1px solid var(--border);
-    background: rgba(255, 250, 245, 0.95);
+    background: rgba(255, 250, 245, 0.97);
     backdrop-filter: blur(12px);
+}
+
+.header-container {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 }
 
 .navbar {
@@ -69,15 +103,47 @@ textarea {
     gap: 24px;
 }
 
+
+/* =========================================================
+   LOGO
+========================================================= */
+
 .logo {
-    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
     font-size: 1.6rem;
     font-weight: 800;
 }
 
-.logo span {
-    color: var(--accent);
+.logo-text .logo-cafe {
+    color: #000000 !important;
 }
+
+.logo-text .logo-aura {
+    color: var(--accent) !important;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
 
 .menu {
     display: flex;
@@ -86,6 +152,7 @@ textarea {
 }
 
 .menu a {
+    position: relative;
     color: var(--primary-dark);
     font-weight: bold;
     transition: 0.3s ease;
@@ -95,32 +162,68 @@ textarea {
     color: var(--accent);
 }
 
+.menu a.active {
+    color: var(--primary);
+}
+
+.menu a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--accent);
+}
+
 .menu-button {
     display: none;
+    width: 42px;
+    height: 42px;
     border: none;
+    border-radius: 8px;
     background: transparent;
     color: var(--primary-dark);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
 }
 
-/* BOTÕES */
+
+/* =========================================================
+   BOTÕES
+========================================================= */
 
 .button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
     padding: 13px 23px;
     border: none;
     border-radius: 30px;
     background: var(--primary);
     color: white;
     font-weight: bold;
+    text-align: center;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .button:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(61, 37, 27, 0.15);
+}
+
+.button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .small-button {
@@ -136,9 +239,13 @@ textarea {
 
 .small-button:hover {
     background: var(--accent);
+    color: white;
 }
 
-/* TEXTOS */
+
+/* =========================================================
+   TEXTOS
+========================================================= */
 
 .subtitle {
     color: var(--accent);
@@ -152,7 +259,28 @@ textarea {
     padding: 80px 0;
 }
 
-/* CARROSSEL */
+.section-title {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-title h2 {
+    margin: 8px 0 12px;
+    color: var(--primary-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CARROSSEL
+========================================================= */
 
 .carousel {
     position: relative;
@@ -166,6 +294,7 @@ textarea {
 
 .carousel-track {
     display: flex;
+    width: 100%;
     height: 100%;
     transition: transform 0.6s ease;
 }
@@ -182,9 +311,11 @@ textarea {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg,
-            rgba(29, 19, 15, 0.82),
-            rgba(29, 19, 15, 0.18));
+    background: linear-gradient(
+        90deg,
+        rgba(29, 19, 15, 0.82),
+        rgba(29, 19, 15, 0.18)
+    );
 }
 
 .slide-one {
@@ -206,7 +337,7 @@ textarea {
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    max-width: 600px;
+    max-width: 700px;
     padding: 40px 8%;
     color: white;
 }
@@ -223,6 +354,10 @@ textarea {
     color: rgba(255, 255, 255, 0.86);
 }
 
+.slide-content .button {
+    width: fit-content;
+}
+
 .tag {
     width: fit-content;
     padding: 8px 14px;
@@ -235,38 +370,56 @@ textarea {
     text-transform: uppercase;
 }
 
+
+/* =========================================================
+   BOTÕES DO CARROSSEL
+========================================================= */
+
+.carousel-button,
 .carousel-arrow {
     position: absolute;
     top: 50%;
-    z-index: 3;
+    z-index: 5;
     width: 45px;
     height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    font-size: 2rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transform: translateY(-50%);
+    transition: 0.3s ease;
 }
 
+.carousel-button:hover,
 .carousel-arrow:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.35);
 }
 
+.carousel-button.previous,
 .carousel-arrow.previous {
     left: 20px;
 }
 
+.carousel-button.next,
 .carousel-arrow.next {
     right: 20px;
 }
+
+
+/* =========================================================
+   PONTOS DO CARROSSEL
+========================================================= */
 
 .carousel-dots {
     position: absolute;
     bottom: 22px;
     left: 50%;
-    z-index: 3;
+    z-index: 6;
     display: flex;
     gap: 9px;
     transform: translateX(-50%);
@@ -275,17 +428,53 @@ textarea {
 .dot {
     width: 12px;
     height: 12px;
+    padding: 0;
     border: 2px solid white;
     border-radius: 50%;
     background: transparent;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .dot.active {
     background: white;
 }
 
-/* HISTÓRIA */
+
+/* =========================================================
+   HISTÓRIA
+========================================================= */
+
+.history {
+    padding: 90px 0;
+}
+
+.history-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.history-image img {
+    width: 100%;
+    height: 470px;
+    border-radius: 25px;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+.history-content h2 {
+    margin: 10px 0 20px;
+    color: var(--primary-dark);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+}
+
+.history-content p {
+    margin-bottom: 16px;
+    color: var(--muted);
+}
 
 .two-columns {
     display: grid;
@@ -295,6 +484,7 @@ textarea {
 }
 
 .rounded-image {
+    width: 100%;
     height: 470px;
     border-radius: 25px;
     object-fit: cover;
@@ -318,7 +508,14 @@ textarea {
     background: #efe1d3;
 }
 
-/* AMBIENTE */
+
+/* =========================================================
+   GALERIA
+========================================================= */
+
+.gallery-section {
+    padding: 80px 0;
+}
 
 .section-heading {
     margin-bottom: 30px;
@@ -341,18 +538,35 @@ textarea {
     gap: 22px;
 }
 
-.gallery img {
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.gallery img,
+.gallery-item img {
+    width: 100%;
     height: 300px;
     border-radius: 20px;
     object-fit: cover;
     transition: 0.3s ease;
 }
 
-.gallery img:hover {
+.gallery img:hover,
+.gallery-item img:hover {
     transform: scale(1.03);
 }
 
-/* SEÇÕES DE PRODUTOS E PEDIDOS */
+
+/* =========================================================
+   PÁGINAS
+========================================================= */
 
 .page-section {
     padding: 90px 0;
@@ -374,7 +588,40 @@ textarea {
     color: var(--muted);
 }
 
-/* PRODUTOS */
+
+/* =========================================================
+   PRODUTOS
+========================================================= */
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 28px;
+    border: 2px solid var(--accent);
+    border-radius: 25px;
+    background: transparent;
+    color: var(--primary-dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    color: white;
+}
 
 .products-grid {
     display: grid;
@@ -388,14 +635,22 @@ textarea {
     border-radius: 22px;
     background: var(--card);
     box-shadow: 0 8px 25px rgba(61, 37, 27, 0.06);
+    animation: fadeIn 0.3s ease;
 }
 
-.product-card img {
+.product-card.hidden {
+    display: none;
+}
+
+.product-card img,
+.product-image img {
+    width: 100%;
     height: 245px;
     object-fit: cover;
 }
 
-.product-info {
+.product-info,
+.product-content {
     padding: 22px;
 }
 
@@ -407,13 +662,15 @@ textarea {
     text-transform: uppercase;
 }
 
-.product-info h2 {
+.product-info h2,
+.product-content h3 {
     margin: 7px 0;
     color: var(--primary-dark);
     font-size: 1.35rem;
 }
 
-.product-info p {
+.product-info p,
+.product-content p {
     min-height: 52px;
     color: var(--muted);
 }
@@ -431,36 +688,107 @@ textarea {
     font-size: 1.3rem;
 }
 
-/* PEDIDOS */
+.section-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   PEDIDOS
+========================================================= */
 
 .order-layout {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    align-items: start;
-    gap: 55px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.order-content h2 {
-    margin: 10px 0 18px;
-    color: var(--primary-dark);
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.1;
+.order-form-area {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-.order-content>p {
-    color: var(--muted);
-}
 
-.contact-box {
-    margin-top: 30px;
-    padding: 24px;
-    border-left: 4px solid var(--accent);
+/* =========================================================
+   LOGIN NO PEDIDO
+========================================================= */
+
+.login-box {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    min-height: 140px;
+    margin-bottom: 25px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
     background: #f0e2d4;
-    color: var(--muted);
+    box-shadow: 0 8px 25px rgba(61, 37, 27, 0.08);
 }
 
-.form-card,
-.login-card {
+.login-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+}
+
+.login-box-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.login-box h3 {
+    margin-bottom: 6px;
+    color: var(--primary-dark);
+    font-size: 1.35rem;
+}
+
+.login-box p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+.login-order-button {
+    flex-shrink: 0;
+    min-width: 150px;
+    min-height: 48px;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   FORMULÁRIO DE PEDIDO
+========================================================= */
+
+.form-card {
+    width: 100%;
     padding: 35px;
     border: 1px solid var(--border);
     border-radius: 22px;
@@ -468,8 +796,13 @@ textarea {
     box-shadow: var(--shadow);
 }
 
-.form-card label,
-.login-card label {
+.form-title {
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+}
+
+.form-card label {
     display: block;
     margin: 15px 0 7px;
     color: var(--primary-dark);
@@ -478,20 +811,20 @@ textarea {
 
 .form-card input,
 .form-card select,
-.form-card textarea,
-.login-card input {
+.form-card textarea {
     width: 100%;
     padding: 13px 15px;
     border: 1px solid var(--border);
     border-radius: 10px;
     outline: none;
     background: white;
+    color: var(--text);
+    transition: border-color 0.3s ease;
 }
 
 .form-card input:focus,
 .form-card select:focus,
-.form-card textarea:focus,
-.login-card input:focus {
+.form-card textarea:focus {
     border-color: var(--accent);
 }
 
@@ -499,11 +832,15 @@ textarea {
     resize: vertical;
 }
 
-.form-card .button {
+.order-button {
+    width: 100%;
     margin-top: 22px;
 }
 
-/* LOGIN */
+
+/* =========================================================
+   LOGIN DO CLIENTE
+========================================================= */
 
 .login-section {
     display: flex;
@@ -515,16 +852,40 @@ textarea {
 
 .login-card {
     width: min(450px, 100%);
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--card);
+    box-shadow: var(--shadow);
 }
 
 .login-card h1 {
     margin: 8px 0;
     color: var(--primary-dark);
-    font-size: 2.3rem;
 }
 
-.login-card>p {
+.login-card > p {
     color: var(--muted);
+}
+
+.login-card label {
+    display: block;
+    margin: 15px 0 7px;
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: white;
+}
+
+.login-card input:focus {
+    border-color: var(--accent);
 }
 
 .login-button {
@@ -538,7 +899,6 @@ textarea {
     justify-content: space-between;
     gap: 10px;
     margin-top: 16px;
-    font-size: 0.9rem;
 }
 
 .remember label {
@@ -564,93 +924,1165 @@ textarea {
     text-align: center;
 }
 
-/* FOOTER */
 
-.footer {
-    padding: 28px 0;
-    background: #1d130f;
-    color: rgba(255, 255, 255, 0.7);
+/* =========================================================
+   ADMINISTRATIVO
+========================================================= */
+
+.admin-section {
+    min-height: 100vh;
+    padding: 70px 0 90px;
+    background: var(--background);
 }
 
-.footer-content {
+
+/* =========================================================
+   LOGIN DO FUNCIONÁRIO
+========================================================= */
+
+.admin-login-section {
+    min-height: calc(100vh - 78px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    background: var(--background);
+}
+
+.admin-login-section .container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CARD DO LOGIN
+========================================================= */
+
+.admin-login-card,
+.admin-login-box {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 42px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+
+/* =========================================================
+   ÍCONE DO LOGIN
+========================================================= */
+
+.admin-login-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 8px 20px rgba(104, 67, 47, 0.18);
+}
+
+
+/* =========================================================
+   TEXTOS DO LOGIN
+========================================================= */
+
+.admin-login-card .subtitle,
+.admin-login-box .subtitle {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-login-card h1,
+.admin-login-box h1 {
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height: 1.15;
+}
+
+.admin-login-card > p,
+.admin-login-box > p {
+    margin-bottom: 30px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   FORMULÁRIO DO FUNCIONÁRIO
+========================================================= */
+
+.admin-login-form {
+    width: 100%;
+    text-align: left;
+}
+
+.admin-login-form .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.admin-login-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+
+.admin-login-form input {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: white;
+    color: var(--text);
+    font-size: 1rem;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.admin-login-form input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(104, 67, 47, 0.10);
+}
+
+.admin-login-form input::placeholder {
+    color: #a18f84;
+}
+
+
+/* =========================================================
+   MENSAGEM DE ERRO
+========================================================= */
+
+.admin-login-error {
+    min-height: 24px;
+    margin: 0 0 10px;
+    color: var(--danger);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* =========================================================
+   BOTÃO DO LOGIN
+========================================================= */
+
+.admin-login-form .button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   INFORMAÇÃO DO LOGIN
+========================================================= */
+
+.admin-login-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.admin-login-info i {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   COMPATIBILIDADE COM ESTRUTURAS ANTIGAS
+========================================================= */
+
+.admin-login-content {
+    width: 100%;
+}
+
+.admin-login-content .subtitle {
+    display: block;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.admin-login-content h1 {
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.admin-login-content > p {
+    margin-bottom: 30px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.admin-login-content .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-login-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+
+.input-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    z-index: 2;
+    color: var(--primary);
+    transform: translateY(-50%);
+}
+
+.input-icon input {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 18px 0 48px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    background: white;
+    color: var(--text);
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.input-icon input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(104, 67, 47, 0.10);
+}
+
+
+/* =========================================================
+   CABEÇALHO DA ADMINISTRAÇÃO
+========================================================= */
+
+.admin-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+    min-height: 110px;
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 1.3rem;
+}
+
+.admin-user strong {
+    display: block;
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+}
+
+.admin-user span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.admin-header .button {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TÍTULO ADMINISTRATIVO
+========================================================= */
+
+.admin-title {
+    margin-bottom: 30px;
+}
+
+.admin-title .subtitle {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-title h1 {
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+}
+
+.admin-title p {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   COMPATIBILIDADE COM ADMIN ANTIGO
+========================================================= */
+
+.admin-header-info {
+    display: flex;
+    align-items: center;
     gap: 20px;
 }
 
-.footer strong {
+.admin-user p {
+    margin-bottom: 3px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.admin-user h2 {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+}
+
+.admin-restricted {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   BOTÃO SAIR
+========================================================= */
+
+.admin-logout-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.admin-logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background: var(--card);
+    color: var(--danger);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.admin-logout-button:hover {
+    background: #f8e4e1;
+    border-color: var(--danger);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOTÕES DE STATUS
+========================================================= */
+
+.order-status-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.status-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 11px 20px;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    background: var(--card);
+    color: var(--primary-dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.status-button:hover {
+    border-color: var(--accent);
+    background: #f0e2d4;
+    transform: translateY(-2px);
+}
+
+.status-button.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 6px 18px rgba(104, 67, 47, 0.18);
+}
+
+.status-count {
+    min-width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   ÁREA DOS PEDIDOS
+========================================================= */
+
+.admin-orders {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+
+/* =========================================================
+   PAINEL DE PEDIDOS
+========================================================= */
+
+.orders-panel {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 25px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--card);
+    box-shadow: 0 8px 25px rgba(61, 37, 27, 0.07);
+}
+
+.orders-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.orders-panel-header h2 {
+    color: var(--primary-dark);
+    font-size: 1.45rem;
+}
+
+.orders-panel-header .subtitle {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   LISTA DE PEDIDOS
+========================================================= */
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CARD DO PEDIDO
+========================================================= */
+
+.order-admin-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 16px;
+    background: #fffdf9;
+    box-shadow: 0 5px 18px rgba(61, 37, 27, 0.06);
+    transition: 0.3s ease;
+}
+
+.order-admin-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(61, 37, 27, 0.1);
+}
+
+.order-admin-card.finished {
+    border-left-color: var(--success);
+}
+
+.order-admin-info {
+    flex: 1;
+    display: grid;
+    gap: 8px;
+}
+
+.order-admin-info h3 {
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+    font-size: 1.15rem;
+}
+
+.order-admin-info p {
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.order-admin-info strong {
+    color: var(--primary-dark);
+}
+
+.order-admin-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 10px;
+}
+
+.order-admin-actions .button {
+    min-height: 42px;
+    padding: 9px 17px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   PEDIDOS VAZIOS
+========================================================= */
+
+.empty-orders {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 220px;
+    padding: 30px;
+    text-align: center;
+}
+
+.empty-orders i {
+    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 2.5rem;
+}
+
+.empty-orders h3 {
+    margin-bottom: 6px;
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+}
+
+.empty-orders p {
+    max-width: 380px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CONTADORES
+========================================================= */
+
+#pendingCount,
+#finishedCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 25px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding: 45px 0 0;
+    background: #1d130f;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 50px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h3 {
+    margin-bottom: 5px;
     color: white;
     font-size: 1.2rem;
 }
 
-/* RESPONSIVIDADE */
+.footer-column p {
+    max-width: 320px;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.footer-column a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: white;
+    transform: translateX(3px);
+}
+
+.footer-column a i,
+.footer-column p i {
+    width: 20px;
+    flex-shrink: 0;
+    color: var(--accent);
+    text-align: center;
+}
+
+.footer-bottom {
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   COMPATIBILIDADE COM FOOTER ANTIGO
+========================================================= */
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 50px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-info h3 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.footer-info p {
+    max-width: 280px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-social h3,
+.footer-contact h3 {
+    margin-bottom: 18px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: white;
+    transform: translateX(3px);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-contact a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE - TABLET
+========================================================= */
 
 @media (max-width: 900px) {
-    .navbar {
-        flex-wrap: wrap;
-    }
 
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .two-columns,
-    .order-layout {
+    .history-container {
         grid-template-columns: 1fr;
     }
 
-    .rounded-image {
+    .rounded-image,
+    .history-image img {
         height: 350px;
     }
+
+    .admin-orders {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container,
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .order-admin-card {
+        flex-direction: column;
+    }
+
+    .order-admin-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
 }
+
+
+/* =========================================================
+   RESPONSIVIDADE - CELULAR
+========================================================= */
+
 @media (max-width: 650px) {
+
+    .container {
+        width: min(100% - 24px, 1180px);
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .header-container {
+        position: relative;
+        min-height: 70px;
+        flex-wrap: wrap;
+    }
+
     .navbar {
         position: relative;
         flex-wrap: wrap;
         padding: 15px 0;
     }
+
     .menu-button {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .header-button {
-        display: none;
-    }
+
     .menu {
         display: none;
         width: 100%;
         flex-direction: column;
-        padding: 15px 0;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 0;
     }
-    .menu.open {
+
+    .menu.open,
+    .menu.active {
         display: flex;
     }
-    .carousel {
-        height: 500px;
+
+    .menu a {
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--border);
     }
+
+    .menu a:last-child {
+        border-bottom: none;
+    }
+
+    .menu a.active::after {
+        display: none;
+    }
+
+
+    /* =====================================================
+       LOGO NO CELULAR
+    ===================================================== */
+
+    .logo-text {
+        font-size: 1.35rem;
+    }
+
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    /* =====================================================
+       CARROSSEL
+    ===================================================== */
+
+    .carousel {
+        width: calc(100% - 24px);
+        height: 500px;
+        margin-top: 18px;
+        border-radius: 20px;
+    }
+
     .slide-content {
         padding: 30px;
     }
+
+    .slide-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .carousel-button,
     .carousel-arrow {
         display: none;
     }
+
+
+    /* =====================================================
+       PRODUTOS
+    ===================================================== */
+
     .products-grid,
-    .gallery {
+    .gallery,
+    .gallery-grid {
         grid-template-columns: 1fr;
     }
-    .gallery img {
+
+    .gallery img,
+    .gallery-item img {
         height: 260px;
     }
+
+
+    /* =====================================================
+       FORMULÁRIOS
+    ===================================================== */
+
     .form-card,
     .login-card {
         padding: 25px 20px;
     }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer-container,
     .footer-content {
-        align-items: flex-start;
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
     .remember {
         align-items: flex-start;
         flex-direction: column;
     }
+
+
+    /* =====================================================
+       FILTROS
+    ===================================================== */
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+
+    /* =====================================================
+       LOGIN DO PEDIDO
+    ===================================================== */
+
+    .order-form-area {
+        max-width: 100%;
+    }
+
+    .login-box {
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 150px;
+        padding: 25px;
+    }
+
+    .login-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 1.3rem;
+    }
+
+    .login-box-content {
+        flex: 1;
+    }
+
+    .login-box h3 {
+        font-size: 1.15rem;
+    }
+
+    .login-box p {
+        font-size: 0.9rem;
+    }
+
+    .login-order-button {
+        width: 100%;
+        min-height: 50px;
+        margin-top: 8px;
+    }
+
+
+    /* =====================================================
+       LOGIN DO FUNCIONÁRIO
+    ===================================================== */
+
+    .admin-login-section {
+        min-height: calc(100vh - 70px);
+        padding: 45px 0;
+    }
+
+    .admin-login-card,
+    .admin-login-box {
+        padding: 30px 22px;
+        border-radius: 18px;
+    }
+
+    .admin-login-icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+
+    .admin-login-card h1,
+    .admin-login-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .admin-login-card > p,
+    .admin-login-box > p {
+        font-size: 0.9rem;
+    }
+
+    .admin-login-form input {
+        height: 50px;
+        font-size: 0.95rem;
+    }
+
+    .admin-login-form .button {
+        min-height: 50px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+
+    /* =====================================================
+       ADMINISTRATIVO
+    ===================================================== */
+
+    .admin-section {
+        padding: 45px 0 60px;
+    }
+
+    .admin-title {
+        margin-bottom: 22px;
+    }
+
+    .admin-title h1 {
+        font-size: 2rem;
+    }
+
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: auto;
+        padding: 22px;
+        margin-bottom: 25px;
+    }
+
+    .admin-user {
+        width: 100%;
+    }
+
+    .admin-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    .admin-header .button {
+        width: 100%;
+    }
+
+    .admin-user h2 {
+        font-size: 1.25rem;
+    }
+
+    .admin-restricted {
+        padding-left: 65px;
+    }
+
+
+    /* =====================================================
+       BOTÃO SAIR
+    ===================================================== */
+
+    .admin-logout-area {
+        justify-content: stretch;
+    }
+
+    .admin-logout-button {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       STATUS DOS PEDIDOS
+    ===================================================== */
+
+    .order-status-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .status-button {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       PAINÉIS
+    ===================================================== */
+
+    .orders-panel {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .orders-panel-header {
+        align-items: flex-start;
+    }
+
+
+    /* =====================================================
+       CARDS DE PEDIDOS
+    ===================================================== */
+
+    .order-admin-card {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .order-admin-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .order-admin-actions .button {
+        width: 100%;
+    }
+
+    .empty-orders {
+        min-height: 180px;
+        padding: 20px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer {
+        padding-top: 35px;
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+    }
+
 }

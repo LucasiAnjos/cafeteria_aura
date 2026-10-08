@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Café Aura - Administração</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+
+                <img
+                    src="../static/img/logotipo.jpg"
+                    alt="Logotipo Café Aura"
+                    class="logo-img"
+                >
+
+                <span class="logo-text">
+                    <span class="logo-cafe">Café</span>
+                    <span class="logo-aura">Aura</span>
+                </span>
+
+            </a>
+
+
+            <!-- BOTÃO MENU MOBILE -->
+
+            <button
+                type="button"
+                class="menu-button"
+                id="menuButton"
+                aria-label="Abrir menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <!-- MENU -->
+
+            <nav class="menu" id="menu">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="pedidos.html">
+                    Pedidos
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="administrativo.html">
+                    Admin
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             LOGIN DO FUNCIONÁRIO
+        ================================================== -->
+
+        <section
+            class="admin-login-section"
+            id="adminLoginArea"
+        >
+
+            <div class="container">
+
+                <div class="admin-login-box">
+
+                    <div class="admin-login-icon">
+
+                        <i class="fa-solid fa-user-tie"></i>
+
+                    </div>
+
+
+                    <div class="admin-login-content">
+
+                        <span class="subtitle">
+                            Área Restrita
+                        </span>
+
+                        <h1>
+                            Login do Funcionário
+                        </h1>
+
+                        <p>
+                            Entre com suas credenciais para acessar
+                            a Gestão de Pedidos.
+                        </p>
+
+
+                        <!-- FORMULÁRIO -->
+
+                        <form
+                            id="adminLoginForm"
+                            novalidate
+                        >
+
+
+                            <!-- E-MAIL -->
+
+                            <div class="form-group">
+
+                                <label for="adminEmail">
+                                    E-mail
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-solid fa-envelope"></i>
+
+                                    <input
+                                        type="email"
+                                        id="adminEmail"
+                                        placeholder="funcionario@cafeaura.com"
+                                        autocomplete="username"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SENHA -->
+
+                            <div class="form-group">
+
+                                <label for="adminPassword">
+                                    Senha
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fa-solid fa-lock"></i>
+
+                                    <input
+                                        type="password"
+                                        id="adminPassword"
+                                        placeholder="Digite sua senha"
+                                        autocomplete="current-password"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ERRO -->
+
+                            <p
+                                id="adminLoginError"
+                                class="admin-login-error"
+                            ></p>
+
+
+                            <!-- BOTÃO -->
+
+                            <button
+                                type="submit"
+                                class="button admin-login-button"
+                            >
+
+                                <i class="fa-solid fa-right-to-bracket"></i>
+
+                                Entrar na Administração
+
+                            </button>
+
+
+                            <!-- AVISO -->
+
+                            <p
+                                style="
+                                    margin-top: 15px;
+                                    text-align: center;
+                                    font-size: 0.9rem;
+                                "
+                            >
+
+                                <i class="fa-solid fa-circle-info"></i>
+
+                                Acesso exclusivo para funcionários.
+
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GESTÃO DE PEDIDOS
+        ================================================== -->
+
+        <section
+            class="admin-section"
+            id="adminManagement"
+            style="display: none;"
+        >
+
+            <div class="container">
+
+
+                <!-- TÍTULO -->
+
+                <div class="admin-title">
+
+                    <span class="subtitle">
+                        Painel Administrativo
+                    </span>
+
+                    <h1>
+                        Gestão de Pedidos
+                    </h1>
+
+                    <p>
+                        Acompanhe e gerencie os pedidos realizados
+                        pelos clientes.
+                    </p>
+
+                </div>
+
+
+                <!-- CABEÇALHO -->
+
+                <div class="admin-header">
+
+                    <div class="admin-header-info">
+
+                        <div class="admin-icon">
+
+                            <i class="fa-solid fa-user-tie"></i>
+
+                        </div>
+
+                        <div class="admin-user">
+
+                            <p>
+                                Funcionário conectado
+                            </p>
+
+                            <h2>
+                                Administrador Café Aura
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admin-restricted">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        Área restrita
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAIR -->
+
+                <div class="admin-logout-area">
+
+                    <button
+                        type="button"
+                        class="admin-logout-button"
+                        id="adminLogoutButton"
+                    >
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Sair da Administração
+
+                    </button>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="order-status-buttons">
+
+                    <button
+                        type="button"
+                        class="status-button active"
+                        id="pendingButton"
+                    >
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        Em Atendimento
+
+                        <span id="pendingCount">
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="status-button"
+                        id="finishedButton"
+                    >
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Finalizados
+
+                        <span id="finishedCount">
+                            0
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- PEDIDOS -->
+
+                <div class="admin-orders">
+
+
+                    <!-- EM ATENDIMENTO -->
+
+                    <div
+                        class="orders-panel"
+                        id="pendingOrders"
+                    >
+
+                        <div class="orders-panel-header">
+
+                            <h2>
+                                Pedidos em Atendimento
+                            </h2>
+
+                            <span>
+
+                                <span id="pendingCountPanel">
+                                    0
+                                </span>
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="orders-list"
+                            id="pendingOrdersList"
+                        >
+
+                            <div class="empty-orders">
+
+                                <i class="fa-solid fa-mug-saucer"></i>
+
+                                <h3>
+                                    Nenhum pedido em atendimento
+                                </h3>
+
+                                <p>
+                                    Quando novos pedidos forem realizados,
+                                    eles aparecerão aqui.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FINALIZADOS -->
+
+                    <div
+                        class="orders-panel"
+                        id="finishedOrders"
+                        style="display: none;"
+                    >
+
+                        <div class="orders-panel-header">
+
+                            <h2>
+                                Pedidos Finalizados
+                            </h2>
+
+                            <span>
+
+                                <span id="finishedCountPanel">
+                                    0
+                                </span>
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="orders-list"
+                            id="finishedOrdersList"
+                        >
+
+                            <div class="empty-orders">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <h3>
+                                    Nenhum pedido finalizado
+                                </h3>
+
+                                <p>
+                                    Os pedidos concluídos aparecerão aqui.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="footer-info">
+
+                <h3>
+                    Café Aura
+                </h3>
+
+                <p>
+                    Cafés especiais, sabores únicos e momentos inesquecíveis.
+                </p>
+
+            </div>
+
+
+            <!-- REDES SOCIAIS -->
+
+            <div class="footer-social">
+
+                <h3>
+                    Redes sociais
+                </h3>
+
+                <div class="social-icons">
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                        @cafeaura
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                        @cafeaura
+
+                    </a>
+
+
+                    <a href="https://wa.me/5511999999999">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        (11) 99999-9999
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTATO -->
+
+            <div class="footer-contact">
+
+                <h3>
+                    Contato
+                </h3>
+
+
+                <a href="mailto:contato@cafeaura.com">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    contato@cafeaura.com
+
+                </a>
+
+
+                <a href="#">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Rua das Flores, 245
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            © 2026 Café Aura. Todos os direitos reservados.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../static/js/index.js"></script>
+
+</body>
+
+</html>

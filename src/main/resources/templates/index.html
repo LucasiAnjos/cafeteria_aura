@@ -1,168 +1,499 @@
 <!DOCTYPE html>
-<html lang="PT-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Café Aura</title>
+
     <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header class="header">
+
         <div class="container navbar">
-            <a href="#home" class="logo">
+
+            <!-- LOGO -->
+
+            <a href="index.html" class="logo">
+
+                <img src="../static/img/logotipo.jpg" alt="Logotipo Café Aura" class="logo-img">
+
                 Café <span>Aura</span>
+
             </a>
 
-            <button class="menu-button" id="menuButton">☰</button>
+
+            <!-- MENU MOBILE -->
+
+            <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu">
+                ☰
+            </button>
+
+
+            <!-- MENU -->
 
             <nav class="menu" id="menu">
-                <a href="index.html">Home</a>
-                <a href="produtos.html">Produtos</a>
-                <a href="pedidos.html">Pedidos</a>
-                <a href="#login">Login</a>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="pedidos.html">
+                    Pedidos
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <!-- ADMIN -->
+
+                <a href="administrativo.html">
+                    Admin
+                </a>
+
             </nav>
 
         </div>
+
     </header>
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
 
     <main>
 
-        <section class="carousel">
-            <div class="carousel-track" id="carouselTrack">
-                <div class="slide slide-one">
-                    <div class="slide-content">
-                        <span class="tag">Bem-vindo ao Café Aura</span>
 
-                        <h1>O sabor que transforma momentos</h1>
+        <!-- =========================
+             CARROSSEL
+        ========================== -->
+
+        <section class="carousel">
+
+            <div class="carousel-track" id="carouselTrack">
+
+
+                <!-- SLIDE 1 -->
+
+                <div class="slide slide-one">
+
+                    <div class="slide-content">
+
+                        <span class="tag">
+                            Bem-vindo ao Café Aura
+                        </span>
+
+                        <h1>
+                            O sabor que transforma momentos
+                        </h1>
 
                         <p>
-                            Cafés especiais, ambiente acolhedor e experiências feitas para você.
+                            Cafés especiais, ambiente acolhedor e
+                            experiências feitas para você.
                         </p>
 
-                        <a href="#produtos" class="button">
-                            Conheça nosso menu
-                        </a>
                     </div>
+
                 </div>
+
+
+                <!-- SLIDE 2 -->
 
                 <div class="slide slide-two">
-                    <div class="slide-content">
-                        <span class="tag">Café artesanal</span>
 
-                        <h1>Qualidade em cada xícara</h1>
+                    <div class="slide-content">
+
+                        <span class="tag">
+                            Café artesanal
+                        </span>
+
+                        <h1>
+                            Qualidade em cada xícara
+                        </h1>
 
                         <p>
-                            Selecionamos os melhores grãos para preparar cafés únicos.
+                            Selecionamos os melhores grãos para
+                            preparar cafés únicos.
                         </p>
 
-                        <a href="#pedidos" class="button">
-                            Faça seu pedido
-                        </a>
                     </div>
+
                 </div>
 
-                <div class="slide slide-three">
-                    <div class="slide-content">
-                        <span class="tag">Um lugar especial</span>
 
-                        <h1>Seu espaço para relaxar</h1>
+                <!-- SLIDE 3 -->
+
+                <div class="slide slide-three">
+
+                    <div class="slide-content">
+
+                        <span class="tag">
+                            Um lugar especial
+                        </span>
+
+                        <h1>
+                            Seu espaço para relaxar
+                        </h1>
 
                         <p>
-                            Um ambiente moderno, confortável e preparado para receber você.
+                            Um ambiente moderno, confortável e
+                            preparado para receber você.
                         </p>
 
-                        <a href="#ambiente" class="button">
-                            Conheça o ambiente
-                        </a>
                     </div>
+
                 </div>
 
             </div>
+
+
+            <!-- SETA ANTERIOR -->
 
             <button type="button" class="carousel-arrow previous" id="previous" aria-label="Slide anterior">
                 ‹
             </button>
 
+
+            <!-- SETA PRÓXIMO -->
+
             <button type="button" class="carousel-arrow next" id="next" aria-label="Próximo slide">
                 ›
             </button>
 
+
+            <!-- INDICADORES -->
+
             <div class="carousel-dots">
 
-                <button type="button" class="dot active" data-slide="0" aria-label="Ir para o slide 1">
-                </button>
+                <button type="button" class="dot active" data-slide="0" aria-label="Ir para o slide 1"></button>
 
-                <button type="button" class="dot" data-slide="1" aria-label="Ir para o slide 2">
-                </button>
+                <button type="button" class="dot" data-slide="1" aria-label="Ir para o slide 2"></button>
 
-                <button type="button" class="dot" data-slide="2" aria-label="Ir para o slide 3">
-                </button>
+                <button type="button" class="dot" data-slide="2" aria-label="Ir para o slide 3"></button>
 
             </div>
 
         </section>
+
+
+        <!-- =========================
+             HISTÓRIA DO CAFÉ
+        ========================== -->
 
         <section class="coffee-history">
+
             <div class="container two-columns">
+
                 <div class="text-content">
-                    <span class="subtitle">A história do café</span>
-                    <h2>Uma bebida que atravessa gerações</h2>
+
+                    <span class="subtitle">
+                        Tradição & Origem
+                    </span>
+
+                    <h2>
+                        A História do Café
+                    </h2>
 
                     <p>
-                        O café é uma das bebidas mais consumidas do mundo. Sua história
-                        começou há muitos séculos na região da Etiópia.
+                        O café é uma das bebidas mais consumidas e
+                        apreciadas do mundo.
+                        Sua história começou há muitos séculos na
+                        região da Etiópia, onde as propriedades dos
+                        frutos do cafeeiro foram descobertas.
                     </p>
 
                     <p>
-                        Com o passar do tempo, o café se espalhou pelo Oriente Médio,
-                        Europa e chegou ao Brasil, que hoje é um dos maiores produtores
-                        mundiais.
+                        Com o passar do tempo, o café se espalhou
+                        pelo Oriente Médio, Europa e chegou ao Brasil,
+                        tornando-se uma parte fundamental da nossa
+                        cultura e transformando o país em um dos
+                        maiores produtores mundiais.
                     </p>
 
-                    <p>
-                        No Café Aurora, respeitamos essa tradição utilizando grãos
-                        selecionados e métodos cuidadosos de preparo.
-                    </p>
                 </div>
+
 
                 <div>
+
                     <img class="rounded-image" src="../static/img/graosdecafé.avif" alt="Grãos de café">
+
                 </div>
+
             </div>
+
         </section>
+
+
+        <!-- =========================
+             QUEM SOMOS
+        ========================== -->
+
+        <section class="about-us">
+
+            <div class="container two-columns">
+
+                <div>
+
+                    <img class="rounded-image" src="../static/img/espaçocafe.jpg" alt="Nossa equipe e espaço">
+
+                </div>
+
+
+                <div class="text-content">
+
+                    <span class="subtitle">
+                        Quem Somos
+                    </span>
+
+                    <h2>
+                        Nossa Paixão pelo Café Especial
+                    </h2>
+
+                    <p>
+                        No Café Aura, respeitamos a rica tradição
+                        do café utilizando grãos rigorosamente
+                        selecionados de pequenos produtores e
+                        métodos cuidadosos de preparo.
+                    </p>
+
+                    <p>
+                        Nosso propósito é oferecer mais do que uma
+                        xícara de café: queremos proporcionar uma
+                        experiência única de sabor, aconchego e
+                        bem-estar para o seu dia a dia.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NOSSOS AMBIENTES
+        ========================== -->
 
         <section id="ambiente" class="section container">
+
             <div class="section-heading">
-                <span class="subtitle">Nosso ambiente</span>
-                <h2>Um lugar para todos os momentos</h2>
+
+                <span class="subtitle">
+                    Nosso ambiente
+                </span>
+
+                <h2>
+                    Um lugar para todos os momentos
+                </h2>
+
                 <p>
-                    Venha tomar um café, trabalhar, estudar ou aproveitar bons momentos.
+                    Venha tomar um café, trabalhar, estudar ou
+                    aproveitar bons momentos.
                 </p>
+
             </div>
+
 
             <div class="gallery">
-                <img src="static/img/ambiente.avif" alt="Ambiente interno da cafeteria">
 
-                <img src="static/img/mesas.avif" alt="Mesas da cafeteria">
+                <img src="../static/img/ambiente.avif" alt="Ambiente interno da cafeteria">
 
-                <img src="static/img/cafe.avif" alt="Café servido na mesa">
+                <img src="../static/img/mesas.avif" alt="Mesas da cafeteria">
+
+                <img src="../static/img/cafe.avif" alt="Café">
+
             </div>
+
         </section>
 
+
+        <!-- =========================
+             LOCALIZAÇÃO
+        ========================== -->
+
+        <section class="location-section container">
+
+            <div class="section-heading">
+
+                <span class="subtitle">
+                    Localização
+                </span>
+
+                <h2>
+                    Onde nos Encontrar
+                </h2>
+
+                <p>
+                    Venha nos fazer uma visita na Rua das Flores, 245.
+                </p>
+
+            </div>
+
+
+            <div class="map-wrapper" style="
+                    width: 100%;
+                    max-width: 1000px;
+                    margin: 0 auto 40px auto;
+                ">
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197475878235!2d-46.65867082375806!3d-23.561349561601616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2d971e3!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                    width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+        </section>
 
     </main>
 
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
     <footer class="footer">
+
         <div class="container footer-content">
-            <strong>Café Aura</strong>
-            <span>© 2026 Café Aura</span>
-            <span>Rua das Flores, 245</span>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="footer-info">
+
+                <h3>
+                    Café Aura
+                </h3>
+
+                <p>
+                    Café especial, sabor e bons momentos.
+                </p>
+
+            </div>
+
+
+            <!-- REDES SOCIAIS -->
+
+            <div class="footer-social">
+
+                <h3>
+                    Redes sociais
+                </h3>
+
+                <div class="social-icons">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+
+                        <span>
+                            @cafeaura
+                        </span>
+                    </a>
+
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                        <span>
+                            @cafeaura
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTATOS -->
+
+            <div class="footer-contact">
+
+                <h3>
+                    Entre em contato
+                </h3>
+
+
+                <!-- WHATSAPP -->
+
+                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <span>
+                        (11) 99999-9999
+                    </span>
+
+                </a>
+
+
+                <!-- E-MAIL -->
+
+                <a href="mailto:contato@cafeaura.com">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        contato@cafeaura.com
+                    </span>
+
+                </a>
+
+
+                <!-- ENDEREÇO -->
+
+                <a href="#">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Rua das Flores, 245
+                    </span>
+
+                </a>
+
+            </div>
+
         </div>
+
+
+        <!-- =========================
+             COPYRIGHT
+        ========================== -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Café Aura. Todos os direitos reservados.
+            </span>
+
+        </div>
+
     </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script src="../static/js/index.js"></script>
+
 </body>
 
 </html>

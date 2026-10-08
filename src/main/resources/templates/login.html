@@ -1,368 +1,306 @@
 <!DOCTYPE html>
-<html lang="PT-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Aura</title>
+
+    <title>Login - Café Aura</title>
+
     <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header class="header">
+
         <div class="container navbar">
-            <a href="#home" class="logo">
+
+            <a href="index.html" class="logo">
+
+                <img
+                    src="../static/img/logotipo.jpg"
+                    alt="Logotipo Café Aura"
+                    class="logo-img"
+                >
+
                 Café <span>Aura</span>
+
             </a>
 
-            <button class="menu-button" id="menuButton">☰</button>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+            >
+                ☰
+            </button>
+
 
             <nav class="menu" id="menu">
-                <a href="index.html">Home</a>
-                <a href="produtos.html">Produtos</a>
-                <a href="pedidos.html">Pedidos</a>
-                <a href="#login">Login</a>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="pedidos.html">
+                    Pedidos
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <!-- ADMIN -->
+                <a href="administrativo.html">
+                    Admin
+                </a>
+
             </nav>
 
-            <a href="#pedidos" class="button header-button">
-                Fazer pedido
-            </a>
         </div>
+
     </header>
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
 
     <main>
 
-        <section class="carousel">
+        <section class="login-section">
 
-            <div class="carousel-track" id="carouselTrack">
+            <form
+                class="login-card"
+                id="loginForm"
+            >
+
+                <span class="subtitle">
+                    Área do cliente
+                </span>
 
 
-                <div class="slide slide-one">
-                    <div class="slide-content">
-                        <span class="tag">Bem-vindo ao Café Aura</span>
+                <h1>
+                    Acesso
+                </h1>
 
-                        <h1>O sabor que transforma momentos</h1>
 
-                        <p>
-                            Cafés especiais, ambiente acolhedor e experiências feitas para você.
-                        </p>
-
-                        <a href="#produtos" class="button">
-                            Conheça nosso menu
-                        </a>
-                    </div>
-                </div>
-
-                <div class="slide slide-two">
-                    <div class="slide-content">
-                        <span class="tag">Café artesanal</span>
-
-                        <h1>Qualidade em cada xícara</h1>
-
-                        <p>
-                            Selecionamos os melhores grãos para preparar cafés únicos.
-                        </p>
-
-                        <a href="#pedidos" class="button">
-                            Faça seu pedido
-                        </a>
-                    </div>
-                </div>
-
-                <div class="slide slide-three">
-                    <div class="slide-content">
-                        <span class="tag">Um lugar especial</span>
-
-                        <h1>Seu espaço para relaxar</h1>
-
-                        <p>
-                            Um ambiente moderno, confortável e preparado para receber você.
-                        </p>
-
-                        <a href="#ambiente" class="button">
-                            Conheça o ambiente
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <button type="button" class="carousel-arrow previous" id="previous" aria-label="Slide anterior">
-                ‹
-            </button>
-
-            <button type="button" class="carousel-arrow next" id="next" aria-label="Próximo slide">
-                ›
-            </button>
-
-            <div class="carousel-dots">
-
-                <button type="button" class="dot active" data-slide="0" aria-label="Ir para o slide 1">
-                </button>
-
-                <button type="button" class="dot" data-slide="1" aria-label="Ir para o slide 2">
-                </button>
-
-                <button type="button" class="dot" data-slide="2" aria-label="Ir para o slide 3">
-                </button>
-
-            </div>
-
-        </section>
-
-        <section class="coffee-history">
-            <div class="container two-columns">
-                <div class="text-content">
-                    <span class="subtitle">A história do café</span>
-                    <h2>Uma bebida que atravessa gerações</h2>
-
-                    <p>
-                        O café é uma das bebidas mais consumidas do mundo. Sua história
-                        começou há muitos séculos na região da Etiópia.
-                    </p>
-
-                    <p>
-                        Com o passar do tempo, o café se espalhou pelo Oriente Médio,
-                        Europa e chegou ao Brasil, que hoje é um dos maiores produtores
-                        mundiais.
-                    </p>
-
-                    <p>
-                        No Café Aurora, respeitamos essa tradição utilizando grãos
-                        selecionados e métodos cuidadosos de preparo.
-                    </p>
-                </div>
-
-                <div>
-                    <img class="rounded-image" src="static/img/graosdecafé.avif" alt="Grãos de café">
-                </div>
-            </div>
-        </section>
-
-        <section id="ambiente" class="section container">
-            <div class="section-heading">
-                <span class="subtitle">Nosso ambiente</span>
-                <h2>Um lugar para todos os momentos</h2>
                 <p>
-                    Venha tomar um café, trabalhar, estudar ou aproveitar bons momentos.
+                    Entre com suas credenciais para acessar sua conta
                 </p>
-            </div>
 
-            <div class="gallery">
-                <img src="static/img/ambiente.avif" alt="Ambiente interno da cafeteria">
 
-                <img src="static/img/mesas.avif" alt="Mesas da cafeteria">
+                <label for="loginEmail">
+                    Email *
+                </label>
 
-                <img src="static/img/cafe.avif" alt="Café servido na mesa">
-            </div>
-        </section>
+                <input
+                    type="email"
+                    id="loginEmail"
+                    name="email"
+                    placeholder="Digite seu email"
+                    required
+                >
 
-        </section>
 
-        <section id="produtos" class="page-section">
-            <div class="container">
-                <div class="page-title">
-                    <span class="subtitle">Nosso menu</span>
-                    <h1>Produtos</h1>
-                    <p>Escolha seu café favorito.</p>
-                </div>
+                <label for="password">
+                    Senha *
+                </label>
 
-                <div class="products-grid">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Digite sua senha"
+                    required
+                >
 
-                    <article class="product-card">
-                        <img src="static/img/cafeexpresso.avif" alt="Café espresso">
-                        <div class="product-info">
-                            <span class="category">Café quente</span>
-                            <h2>Espresso Clássico</h2>
-                            <p>Café intenso, encorpado e com aroma marcante.</p>
 
-                            <div class="product-footer">
-                                <strong>R$ 8,00</strong>
-                                <button class="small-button add-product"
-                                    data-name="Espresso Clássico">Adicionar</button>
-                            </div>
-                        </div>
-                    </article>
+                <div class="remember">
 
-                    <article class="product-card">
-                        <img src="static/img/cappucciono.avif" alt="Cappuccino">
-                        <div class="product-info">
-                            <span class="category">Café quente</span>
-                            <h2>Cappuccino Cremoso</h2>
-                            <p>Café, leite vaporizado, espuma e canela.</p>
+                    <label>
 
-                            <div class="product-footer">
-                                <strong>R$ 14,00</strong>
-                                <button class="small-button add-product"
-                                    data-name="Cappuccino Cremoso">Adicionar</button>
-                            </div>
-                        </div>
-                    </article>
+                        <input
+                            type="checkbox"
+                            name="remember"
+                        >
 
-                    <article class="product-card">
-                        <img src="static/img/mocha.avif" alt="Mocha">
-                        <div class="product-info">
-                            <span class="category">Café especial</span>
-                            <h2>Mocha Aurora</h2>
-                            <p>Uma combinação de café, leite e chocolate.</p>
+                        Lembrar de mim
 
-                            <div class="product-footer">
-                                <strong>R$ 16,00</strong>
-                                <button class="small-button add-product" data-name="Mocha Aurora">Adicionar</button>
-                            </div>
-                        </div>
-                    </article>
+                    </label>
 
-                    <article class="product-card">
-                        <img src="static/img/iccecoffe.avif" alt="Iced Coffee">
-                        <div class="product-info">
-                            <span class="category">Bebida gelada</span>
-                            <h2>Iced Coffee</h2>
-                            <p>Café gelado, leite e gelo em uma bebida refrescante.</p>
 
-                            <div class="product-footer">
-                                <strong>R$ 15,00</strong>
-                                <button class="small-button add-product" data-name="Iced Coffee">Adicionar</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <img src="static/img/donnut.avif" alt="Donut">
-                        <div class="product-info">
-                            <span class="category">Doce</span>
-                            <h2>Donut Aurora</h2>
-                            <p>Donut macio com cobertura de chocolate.</p>
-
-                            <div class="product-footer">
-                                <strong>R$ 10,00</strong>
-                                <button class="small-button add-product" data-name="Donut Aurora">Adicionar</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <img src="static/img/bolo.avif" alt="Bolo">
-                        <div class="product-info">
-                            <span class="category">Doce</span>
-                            <h2>Bolo de Chocolate</h2>
-                            <p>Fatia de bolo fofinho com cobertura cremosa.</p>
-
-                            <div class="product-footer">
-                                <strong>R$ 12,00</strong>
-                                <button class="small-button add-product"
-                                    data-name="Bolo de Chocolate">Adicionar</button>
-                            </div>
-                        </div>
-                    </article>
+                    <a href="#">
+                        Esqueceu a senha?
+                    </a>
 
                 </div>
-            </div>
-        </section>
 
-        <section id="pedidos" class="page-section">
-            <div class="container">
-                <div class="page-title">
-                    <span class="subtitle">Pedido rápido</span>
-                    <h1>Faça seu pedido</h1>
-                    <p>Escolha seu produto e preencha os dados abaixo.</p>
+
+                <button
+                    type="submit"
+                    class="button login-button"
+                >
+                    Entrar
+                </button>
+
+
+                <div class="register">
+
+                    <p>
+
+                        Não tem conta?
+
+                        <a href="#">
+                            Crie uma agora
+                        </a>
+
+                    </p>
+
                 </div>
 
-                <div class="order-layout">
-                    <div class="order-content">
-                        <span class="subtitle">Café quentinho</span>
-                        <h2>Seu pedido está esperando por você</h2>
+            </form>
 
-                        <p>
-                            Preencha o formulário ao lado. Nossa equipe entrará em contato
-                            para confirmar o pedido.
-                        </p>
-
-                        <div class="contact-box">
-                            <p><strong>Telefone:</strong> (11) 99999-9999</p>
-                            <p><strong>Horário:</strong> 8h às 20h</p>
-                            <p><strong>Endereço:</strong> Rua das Flores, 245</p>
-                        </div>
-                    </div>
-
-                    <form class="form-card" id="orderForm">
-                        <label for="name">Nome completo</label>
-                        <input type="text" id="name" placeholder="Digite seu nome" required>
-
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" placeholder="Digite seu e-mail" required>
-
-                        <label for="product">Produto</label>
-                        <select id="product" required>
-                            <option value="">Selecione um produto</option>
-                            <option>Espresso Clássico</option>
-                            <option>Cappuccino Cremoso</option>
-                            <option>Mocha Aurora</option>
-                            <option>Iced Coffee</option>
-                            <option>Donut Aurora</option>
-                            <option>Bolo de Chocolate</option>
-                        </select>
-
-                        <label for="quantity">Quantidade</label>
-                        <input type="number" id="quantity" min="1" value="1" required>
-
-                        <label for="observation">Observações</label>
-                        <textarea id="observation" rows="5" placeholder="Digite alguma observação"></textarea>
-
-                        <button type="submit" class="button">
-                            Enviar pedido
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <section id="login" class="login-section">
-            <div class="login-card">
-                <span class="subtitle">Área do cliente</span>
-
-                <h1>Entrar na conta</h1>
-                <p>Acesse sua conta para acompanhar seus pedidos.</p>
-
-                <form id="loginForm">
-                    <label for="loginEmail">E-mail</label>
-                    <input type="email" id="loginEmail" placeholder="Digite seu e-mail" required>
-
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" placeholder="Digite sua senha" required>
-
-                    <div class="remember">
-                        <label>
-                            <input type="checkbox">
-                            Lembrar de mim
-                        </label>
-
-                        <a href="#">Esqueci minha senha</a>
-                    </div>
-
-                    <button type="submit" class="button login-button">
-                        Entrar
-                    </button>
-                </form>
-
-                <p class="register">
-                    Ainda não possui uma conta?
-                    <a href="#">Cadastre-se</a>
-                </p>
-            </div>
         </section>
 
     </main>
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer class="footer">
+
         <div class="container footer-content">
-            <strong>Café Aura</strong>
-            <span>© 2026 Café Aura</span>
-            <span>Rua das Flores, 245</span>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="footer-info">
+
+                <h3>
+                    Café Aura
+                </h3>
+
+                <p>
+                    Café especial, sabor e bons momentos.
+                </p>
+
+            </div>
+
+
+            <!-- REDES SOCIAIS -->
+
+            <div class="footer-social">
+
+                <h3>
+                    Redes sociais
+                </h3>
+
+
+                <div class="social-icons">
+
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                        title="Instagram"
+                    >
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                        <span>
+                            @cafeaura
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                        title="Facebook"
+                    >
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                        <span>
+                            @cafeaura
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTATO -->
+
+            <div class="footer-contact">
+
+                <h3>
+                    Contato
+                </h3>
+
+
+                <a href="mailto:contato@cafeaura.com">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        contato@cafeaura.com
+                    </span>
+
+                </a>
+
+
+                <a href="#">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Rua das Flores, 245
+                    </span>
+
+                </a>
+
+            </div>
+
         </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Café Aura. Todos os direitos reservados.
+            </span>
+
+        </div>
+
     </footer>
-    <script src="static/js/index.js"></script>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../static/js/index.js"></script>
+
 </body>
 
 </html>
